@@ -1,0 +1,176 @@
+{
+	"rooms": 
+		[
+			{
+				"r": "create_actors",
+				"actor_data": 
+					[
+						{
+							"actor_id": "Interactive_Objects",
+							"components": 
+								[
+									{
+										"type": "volume_trigger",
+										"volume_data": 
+											[
+												{
+													"collision_type": "box",
+													"center": 
+														[
+															-7.037,
+															0,
+															0
+														],
+													"extents": 
+														[
+															4.312,
+															2.79999948,
+															5.235999
+														],
+													"rotation": 
+														[
+															0,
+															0,
+															0
+														]
+												}
+											],
+										"trigger_type": "local"
+									},
+									{
+										"type": "net_actor_node",
+										"inputs": 
+											[
+												{
+													"input_port": "on",
+													"actions": 
+														[
+															{
+																"a": "model_animation",
+																"r": 
+																	[
+																		0,
+																		0,
+																		0
+																	],
+																"o": 
+																	[
+																		0,
+																		0,
+																		0
+																	],
+																"uid": "local",
+																"p": 
+																	{
+																		"name": "Lift_Open",
+																		"wrap_mode": "once",
+																		"switch_method": "queue",
+																		"wait_method": "none"
+																	}
+															}
+														]
+												},
+												{
+													"input_port": "off",
+													"actions": 
+														[
+															{
+																"a": "model_animation",
+																"r": 
+																	[
+																		0,
+																		0,
+																		0
+																	],
+																"o": 
+																	[
+																		0,
+																		0,
+																		0
+																	],
+																"uid": "local",
+																"p": 
+																	{
+																		"name": "Lift_Close",
+																		"wrap_mode": "once",
+																		"switch_method": "queue",
+																		"wait_method": "none"
+																	}
+															}
+														]
+												}
+											],
+										"outputs": 
+											[
+												{
+													"output_port": "volume_trigger_enter_first",
+													"cooldown": 2,
+													"output_port_data": 
+														[
+															{
+																"type": "local_wiring",
+																"actor_id": "Interactive_Objects",
+																"input_port": "on"
+															}
+														],
+													"restricted_types": 
+														[
+															"avakin",
+															"petkin"
+														]
+												},
+												{
+													"output_port": "volume_trigger_exit_all",
+													"cooldown": 2,
+													"output_port_data": 
+														[
+															{
+																"type": "local_wiring",
+																"actor_id": "Interactive_Objects",
+																"input_port": "off"
+															}
+														],
+													"restricted_types": 
+														[
+															"avakin",
+															"petkin"
+														]
+												}
+											]
+									},
+									{
+										"type": "model",
+										"version": 1,
+										"game_asset_url": "sceneref://Room_0/Interactive_Objects",
+										"edit_apartment_animation": "Lift_Open",
+										"idle_animation": "Lift_Close",
+										"idle_wrap_mode": "last_frame"
+									}
+								],
+							"actions": 
+								[
+									{
+										"a": "position",
+										"o": 
+											[
+												0,
+												0,
+												0
+											],
+										"uid": "local"
+									},
+									{
+										"a": "model_set_visible",
+										"uid": "local",
+										"p": 
+											{
+												"method": "Immediate",
+												"visible": true
+											}
+									}
+								]
+						}
+					]
+			}
+		]
+}
